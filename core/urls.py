@@ -5,7 +5,8 @@ import api.views as view_api
 
 router = DefaultRouter()
 
-router.register('customer',view_api.UserViewSet,basename = 'customer')
+router.register('customer',view_api.CustomerViewSet,basename = 'customer')
+router.register('product',view_api.ProductViewSet,basename = 'product')
 
 
 

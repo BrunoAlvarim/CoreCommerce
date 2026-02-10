@@ -8,15 +8,15 @@ CoreCommerce é uma plataforma simulada criada para demonstrar uma arquitetura m
 ```mermaid
 erDiagram
 
-STORE ||--o{ SALE : realiza
-CUSTOMER ||--o{ SALE : compra
-SALE ||--o{ SALE_ITEM : possui
-PRODUCT ||--o{ SALE_ITEM : compoe
-STORE ||--o{ INVENTORY : controla
-PRODUCT ||--o{ INVENTORY : estocado
+STORE ||--o{ INVENTORY : has
+STORE ||--o{ SALE : generates
+CUSTOMER ||--o{ SALE : makes
+SALE ||--o{ SALE_ITEM : contains
+PRODUCT ||--o{ SALE_ITEM : sold_in
+PRODUCT ||--o{ INVENTORY : stocked_in
 
 STORE {
-    uuid store_id PK
+    string store_id PK
     string store_name
     string store_type
     string cnpj
@@ -26,66 +26,62 @@ STORE {
     string city
     string state
     string zipcode
-    decimal latitude
-    decimal longitude
-    timestamp created_at
-    boolean active
+    float latitude
+    float longitude
+    datetime created_at
 }
 
 CUSTOMER {
-    uuid customer_id PK
+    string customer_id PK
     string first_name
     string last_name
     string cpf
     string email
     string phone
-    date birth_date
-    timestamp created_at
-    boolean active
+    datetime birth_date
+    datetime created_at
 }
 
 PRODUCT {
-    uuid product_id PK
+    string product_id PK
     string sku
     string product_name
     string category
     string brand
     string model
-    decimal base_price
-    decimal cost_price
-    int warranty_months
-    timestamp created_at
-    boolean active
+    float base_price
+    float cost_price
+    datetime created_at
 }
 
 SALE {
-    uuid sale_id PK
-    uuid store_id FK
-    uuid customer_id FK
-    timestamp sale_date
-    decimal gross_amount
-    decimal discount_amount
-    decimal net_amount
+    string sale_id PK
+    string store_id FK
+    string customer_id FK
+    datetime sale_date
+    float gross_amount
+    float discount_amount
+    float net_amount
     string payment_method
     int installments
     string status
+    datetime created_at
 }
 
 SALE_ITEM {
-    uuid sale_item_id PK
-    uuid sale_id FK
-    uuid product_id FK
+    string sale_item_id PK
+    string sale_id FK
+    string product_id FK
     int quantity
-    decimal unit_price
-    decimal discount_amount
-    decimal total_price
-    decimal final_price
+    float unit_price
+    float discount
+    float total_price
 }
 
 INVENTORY {
-    uuid inventory_id PK
-    uuid store_id FK
-    uuid product_id FK
-    int quantity
-    timestamp last_update
+    string inventory_id PK
+    string store_id FK
+    string product_id FK
+    int stock_quantity
+    datetime last_update
 }
