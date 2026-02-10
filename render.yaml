@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: corecommerce-api
+    runtime: python
+    branch: main
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /admin/login/
+
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --no-input
+
+    preDeployCommand: "python manage.py migrate"
+
+    startCommand: "gunicorn core_comerce.wsgi:application"
+
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: core-comerce
+          property: connectionString
+
+      - key: SECRET_KEY
+        generateValue: true
+
+      - key: DEBUG
+        value: "False"

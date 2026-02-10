@@ -1,0 +1,7 @@
+from rest_framework import serializers
+import api.models as models
+
+class CustomerSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = models.ModelCustomer
+        exclude = ['created_at','hash_id']
