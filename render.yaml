@@ -12,8 +12,7 @@ services:
       python manage.py collectstatic --no-input
 
     startCommand: |
-      python manage.py migrate && gunicorn core_comerce.wsgi:application
-
+      python manage.py migrate && gunicorn core.wsgi:application
     envVars:
       - key: DATABASE_URL
         fromDatabase:
