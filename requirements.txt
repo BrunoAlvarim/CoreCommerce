@@ -3,6 +3,7 @@ asgiref==3.11.1
 certifi==2026.1.4
 dj-database-url==3.1.0
 Django==5.2.11
+django-jazzmin==3.0.2
 django-restframework==0.0.1
 djangorestframework==3.16.1
 dotenv==0.9.9
