@@ -1,7 +1,6 @@
 # 🧠 TitanLake — Modelagem Transacional da API
 
-Este projeto simula uma API de vendas de hardware para um ambiente Lakehouse moderno, permitindo ingestão batch e streaming para camadas Bronze, Silver e Gold.
-
+CoreCommerce é uma plataforma simulada criada para demonstrar uma arquitetura moderna de dados com API transacional para vendas de Hardware
 ---
 
 # 📊 Diagrama de Entidades
