@@ -27,3 +27,10 @@ class ModelProduct(models.Model):
         return f"{self.name}"
     class Meta:
         db_table = "api.product"
+
+# class Sale(models.Model):
+#     cpf_cliente = models.ForeignKey(Customer, on_delete=models.CASCADE)
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#     quantity = models.IntegerField()
+#     total_value = models.DecimalField(max_digits=12, decimal_places=2)
+#     sale_date = models.DateTimeField()
