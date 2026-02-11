@@ -11,3 +11,8 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     queryset = models.ModelProduct.objects.all()
     serializer_class = serializers.ProductSerializers
+
+class SaleViewSet(viewsets.ModelViewSet):
+
+    queryset = models.ModelSale.objects.all()
+    serializer_class = serializers.SaleSerializers

@@ -10,3 +10,8 @@ class ProductSerializers(serializers.ModelSerializer):
     class Meta:
         model = models.ModelProduct
         exclude = ['created_at','hash_id']
+
+class SaleSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = models.ModelSale
+        exclude = ['created_at','hash_id']

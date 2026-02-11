@@ -28,9 +28,15 @@ class ModelProduct(models.Model):
     class Meta:
         db_table = "api.product"
 
-# class Sale(models.Model):
-#     cpf_cliente = models.ForeignKey(Customer, on_delete=models.CASCADE)
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     quantity = models.IntegerField()
-#     total_value = models.DecimalField(max_digits=12, decimal_places=2)
-#     sale_date = models.DateTimeField()
+class ModelSale(models.Model):
+    cpf_cliente = models.CharField(max_length=20)
+    product_name = models.CharField(max_length=120)
+    quantity = models.IntegerField()
+    total_value = models.DecimalField(max_digits=12, decimal_places=2)
+    sale_date = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    hash_id = models.UUIDField(default=uuid4)
+    def __str__(self):
+        return super().__str__()
+    class Meta:
+        db_table = "api.sale"

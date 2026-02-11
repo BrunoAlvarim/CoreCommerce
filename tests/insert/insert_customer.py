@@ -43,7 +43,6 @@ def salvar_cliente_sqlite(cpf):
 # ==============================
 # Geradores Fake
 # ==============================
-
 def create_first_name():
     return ''.join(random.choices(string.ascii_letters, k=8)).capitalize()
 
@@ -83,7 +82,6 @@ def create_birth_date(min_age=18, max_age=80, allow_null=True):
     random_date = start_date + (end_date - start_date) * random.random()
 
     return random_date.strftime("%Y-%m-%d")
-
 def post_customer():
 
     first_name = create_first_name()
@@ -129,9 +127,3 @@ def main(total_clientes, base_url):
     conn.close()
 
     print("\nFinalizado com sucesso!")
-
-
-# ==============================
-
-# if __name__ == "__main__":
-#     main(TOTAL_CLIENTES, "http://localhost:8000/api")

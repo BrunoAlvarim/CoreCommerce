@@ -7,7 +7,7 @@ router = DefaultRouter()
 
 router.register('customer',view_api.CustomerViewSet,basename = 'customer')
 router.register('product',view_api.ProductViewSet,basename = 'product')
-
+router.register('sale',view_api.SaleViewSet,basename = 'sale')
 
 
 urlpatterns = [
